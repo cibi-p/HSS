@@ -477,8 +477,8 @@ div .hero-group-2{
         font-size:14px;
     }
     .features-grid{
-        grid-template-columns: 180px 180px;
-        grid-template-rows: 180px 90px 90px 180px;
+        grid-template-columns: 150px 150px;
+        grid-template-rows: 150px 75px 75px 150px;
     }
     .grid-3{
         grid-area:2/2/4/3;
@@ -492,6 +492,15 @@ div .hero-group-2{
     .about-video{
         width:400px;
         height:236px;
+    }
+    .f-title{
+        font-size:16px;
+    }
+    .f-title-descriptions{
+        font-size:16px;
+    }
+    .feature-description{
+        font-size:16px;
     }
 }
 
