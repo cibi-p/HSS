@@ -1,4 +1,5 @@
 /*global style*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
 .container-section-cover{
     width:80%;
@@ -20,6 +21,14 @@
     width:max-content;
     margin:auto;
     padding-bottom:30px;
+}
+
+.Description-making{
+    text-align:justify;
+    font-size:20px;
+    letter-spacing:1;
+    line-height:1.5;
+    color:#00109d;
 }
 
 /*Requirements-section*/
@@ -56,4 +65,73 @@ table{
     border-spacing:0px;
     padding:0px;
     font-weight:600;
+    font-size:20px;
+    letter-spacing:1;
+    line-height:1.5;
 }
+
+/* Explanation */
+
+.block-diagram-img{
+    width: 70%;
+    display:block;
+    margin:60px auto;
+}
+
+/*Hardware configuraion */
+.gist {
+    width:100%;
+    font-size:40px !important;
+    height:60vh;
+    overflow:auto;
+}
+
+.gist *{
+    font-size:16px !important;
+    line-height:2 !important;
+    letter-spacing:1px !important;
+    font-family: 'Oswald', sans-serif;
+}
+.arduino-code{
+    display:block;
+    width:60%;
+    margin:60px auto;
+}
+
+.opencexpla{
+    padding:10px 40px;
+    border-radius:20px;
+    font-size:18px;
+    background-color:#6070FF;
+    border:none;
+    color:white;
+    font-weight:bolder;
+    letter-spacing:1px;
+    font-family: 'Oswald', sans-serif;
+    position:relative;
+    display:block;
+    margin:auto;
+    z-index:1;
+}
+code.ce{
+    color:#404dc8;
+    font-weight:bold;
+}
+
+.code-explanation-description{
+    word-spacing:2px !important;
+    line-height:1.5!important;
+}
+
+#opencexpla{
+    background-color:white;
+    border-radius:20px;
+    padding:40px;
+    width:80%;
+    display:none;
+    margin:auto;
+    position:relative;
+    margin-top:-15px;
+    z-index:0;
+}
+

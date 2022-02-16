@@ -99,7 +99,53 @@
                             </tr>
                         </table>
                     </div>
-                </div>
+                    </div>
+                </section>
+                <section class="container-section explanation-section">
+                    <div class="container-section-cover">
+                        <h1 class="container-title explanation-title">Explanation</h1>
+                        <p class="Description-making explanation-description">Here you can see in figure is a block diagram that NodeMCU is connected to Vibration sensor, Wi-Fi module, Servo motor, Switch and power source. For first time use, user need to register and create password for their product with the unique reference ID allotted to that product. The created password and reference ID will get stored on CloudDB. To open the door, user should turn on the data transfer and click scan button on the app that we created using the MIT app inventor and they need to scan their fingerprint. If the fingerprint is matched it will send the Open() signal along with the reference id to NodeMCU. Then the Arduino checks if the Reference Id matches or not. If it matches then it will open the door lock using the servo motor. Then it wait for if the button is become '0' if it became '0' NodeMCU send door_opened() function to app, then the app will save that information with time in CloudDB. If button become '1' NodeMCU send door_closed() signal to app this also will get saved in cloudDB. We can get this info later whenever we want. Mean While if the strong vibration is produced in the door. NodeMCU decide it as someone destroying the door and send Alert() to the app.</p>
+                        <img src="img/making/block_diagram.png" class="image block-diagram-img">
+                    </div>
+                </section>
+                <section class="container-section hardware-configuration-section">
+                    <div class="container-section-cover">
+                        <h1 class="container-title">Hardware configuration</h1>
+                        <ol class="o-lists harware-lists Description-making">
+                            <li>We gona use Arduino IDE to Program the NodeMCU. To install and Configure the Arduino IDE for NodeMCU, follow the instruction provided in <a href ="https://www.instructables.com/Steps-to-Setup-Arduino-IDE-for-NODEMCU-ESP8266-WiF/" class="link-text" target="_blank"><b>this Page</b></a> , Highly recomended you to read the complete document and try to make simple blink led project using nodemcu.</li>
+                            <li>Then open the Arduino IDE and create the New File by <b>File -> New </b></li>
+                            <li>Enter the below Code. Code Expalanation is given below</li>
+                        </ol>
+                        <code class="arduino-code">
+                        <script class="code-making" src="https://gist.github.com/broharigunda/650d8e81ed21e66ec77c9cc0a95aebbd.js"></script>
+                        </code>
+                        <div class="code-explanation">
+                            <button onclick="opencexpla()" id="opencexplaination" class="opencexpla">Code Explanation</button>
+                            <div class="code-explanation-cover" id="opencexpla">
+                                <p class="description-making code-explanation-description">
+Here we use the Arduino IDE to program the NodeMCU microcontroller. The library used in code are listed below.<br><br>
+<code class="ce">
+#include&lt;ThingSpeak.h&gt;<br>
+#include&lt;ESP8266WiFi.h&gt;<br>
+#include&lt;ESP8266WebServer.h&gt;<br>
+#include&lt;Servo.h&gt;<br>
+</code><br>
+<code class="ce">ThingSpeak.h</code> Library is used to link the nodeMCU to the Thingspeak server. <code class="ce">ESP8266WiFi.h</code> is the WiFi library which used to connect the nodeMCU to the internet via the local Hotspot. For to connect to internet we should mention the SSID and Password in our code. <code class="ce">Servo.h</code> Library is used to control the servo motor to open and close the door lock.
+Then we Define the D2 for Door lock, D4 for Vibration, D5 for Door Open Close status in the code.
+<code class="ce">Serial.begin(115200);</code> is used to display the result in Serial Monitor to debug the pogram in the bandrate of 115200.<br><br>
+Then using <code class="ce">pinMode(pin,INPUT/OUTPUT)</code> is used to define whether the pin is input or output. We define D4 and D5 pin as the INPUT.<br><br>
+<code class="ce">WiFi.begin(ssid, password);</code> beigns the wifi connect with the ssid mentioned in the code. <code class="ce">ThingSpeak.begin(client);</code> begins the connection to the thighspeak via the wifi client.<br><br>
+<code class="ce">ThingSpeak.readLongField(channel name, field number, read api key);</code> is used to get the command updated on thingspeak by the app.<br><br>
+The function <code class="ce">checkrefid(string);</code> checks the command and the REFID. IF it matches only it will Proceed for the further action.<br><br>
+If the command get from the Thingspeak first field is <code class="ce">“REFID+09”</code> it will open the door lock. If the command get is <code class="ce">“REFID+21”</code> nodeMCU will close the door lock.
+<code class="ce">drservo.write(90);</code> rotates the servo motor to 90degree, lock knob is attached to servo motor as shown in the figure 3.4, so the lock will get opened. similarly <code class="ce">drservo.write(0);</code> will close the door lock by rotating the servo motor.<br><br>
+<code class="ce">Vibbbb()</code> function check checks for the vibration. If the vibration is measured as more than 10,000 it writes 555 on the thingspeak field 3, in app it will show as “No vibration detected”. Suppose if the vibration is measured in between 10,000 and 20,000 it writes 666 on the thingspeak field 3, in app it will show as “Medium vibration detected”. If the vibration is measured as more than 30,000 it writes 666 on the thingspeak field 3, in app it will shown as “High vibration detected”
+<code class="ce">ThingSpeak.writeField(channel number, filed number, value, write api key);</code> is used to enter the value in the particular field.<br><br>
+Then it check the digital pin D5 which is where the switch like mechanism attached to door as shown in figure 3.2 is connected. If D5 is HIGH it will write the 936 on the thingspeak in field 2, in app it is shown as “door closed”. If D5 is LOW it will write the 110 on the thingspeak in field 2, in app it is shown as “door opened”. <code class="ce">digitalRead(D5);</code> is used to read the voltage at D5. The above process will get looping till the power is supplied to the NodeMCU.
+                                </p>
+                            </div>
+                        </div>        
+                    </div>
                 </section>
             </article>
 
