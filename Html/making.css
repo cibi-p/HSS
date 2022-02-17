@@ -21,6 +21,7 @@
     width:max-content;
     margin:auto;
     padding-bottom:30px;
+    letter-spacing:1px;
 }
 
 .Description-making{
@@ -31,12 +32,23 @@
     color:#00109d;
 }
 
+li{
+    margin-bottom:5px;
+    margin-top:5px;
+}
 /*Requirements-section*/
 .components-list{
     width:50%;
     text-align:left;
     padding:10px 40px;
     border-right:1px solid #6070FF;
+}
+
+.image{
+    width:70%;
+    height:auto;
+    display:block;
+    margin:50px auto;
 }
 
 .uses-lists{
@@ -72,11 +84,7 @@ table{
 
 /* Explanation */
 
-.block-diagram-img{
-    width: 70%;
-    display:block;
-    margin:60px auto;
-}
+
 
 /*Hardware configuraion */
 .gist {
@@ -134,4 +142,74 @@ code.ce{
     margin-top:-15px;
     z-index:0;
 }
+.code-explanation{
+    margin-bottom:50px;
+}
 
+/*mit-app-inventor-section*/
+.download-aia-apk{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.download-aia-apk a{
+    padding:15px 50px;
+    background-color:#6070FF;
+    color:#fff;
+    font-size:20px;
+    font-weight:bolder;
+    border-radius:20px;
+    letter-spacing:1px;
+    width:max-content;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+/*setting up thingspeak*/
+.thingspeak-image-flex{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.thinspeak-image-f{
+    margin:20px 20px;
+    width:40%;
+    min-width:300px;
+}
+
+/*Download ppt and report */
+.pr-download{
+    display:block;
+    padding:10px 40px;
+    background-color:#6070FF;
+    color:white;
+    font-size:20px;
+    font-weight:bolder;
+    letter-spacing:1px;
+    width:max-content;
+    border-radius:20px;
+    margin:20px 0;
+}
+
+.frame{
+    width:100%;
+    height:400px;
+    min-width:500px;
+}
+
+.frame-cover{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.download-report-ppt{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-around;
+}

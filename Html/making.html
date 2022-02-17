@@ -111,11 +111,11 @@
                 <section class="container-section hardware-configuration-section">
                     <div class="container-section-cover">
                         <h1 class="container-title">Hardware configuration</h1>
-                        <ol class="o-lists harware-lists Description-making">
+                        <ul class="o-lists harware-lists Description-making">
                             <li>We gona use Arduino IDE to Program the NodeMCU. To install and Configure the Arduino IDE for NodeMCU, follow the instruction provided in <a href ="https://www.instructables.com/Steps-to-Setup-Arduino-IDE-for-NODEMCU-ESP8266-WiF/" class="link-text" target="_blank"><b>this Page</b></a> , Highly recomended you to read the complete document and try to make simple blink led project using nodemcu.</li>
                             <li>Then open the Arduino IDE and create the New File by <b>File -> New </b></li>
-                            <li>Enter the below Code. Code Expalanation is given below</li>
-                        </ol>
+                            <li>Enter the below Code. you can also view the code on <a href="https://gist.github.com/broharigunda/650d8e81ed21e66ec77c9cc0a95aebbd#file-hss-ino" target="_blank"><b>github</b></a></li>
+                        </ul>
                         <code class="arduino-code">
                         <script class="code-making" src="https://gist.github.com/broharigunda/650d8e81ed21e66ec77c9cc0a95aebbd.js"></script>
                         </code>
@@ -144,7 +144,79 @@ If the command get from the Thingspeak first field is <code class="ce">“REFID+
 Then it check the digital pin D5 which is where the switch like mechanism attached to door as shown in figure 3.2 is connected. If D5 is HIGH it will write the 936 on the thingspeak in field 2, in app it is shown as “door closed”. If D5 is LOW it will write the 110 on the thingspeak in field 2, in app it is shown as “door opened”. <code class="ce">digitalRead(D5);</code> is used to read the voltage at D5. The above process will get looping till the power is supplied to the NodeMCU.
                                 </p>
                             </div>
-                        </div>        
+                        </div> 
+                        <ul class="o-lists harware-lists Description-making">
+                            <li>  Now you need to install the library <code><b>ThingSpeak.h, ESP8266WIFI.h., ESP8266WebServer.h, Servo.h</b></code></li>
+                            <li>  You can install this libraries from <b>Tools->Manage Libraries</b></li>
+                        </ul>
+                        <img src="img/making/manage-libraries.png" class="image manage-libraries-image">
+                        <ul class="o-lists harware-lists Description-making">
+                            <li>  Then click tick (&#10004;) symbol to compile the program</b></code></li>
+                            <li> Then upload the program to the NodeMCU by clicking the upload icon (<b>&#8594;</b>).</li>
+                            <li>Now connect circuit as shown in the Circuit Diagram.</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="container-section circuit diagram section">
+                    <div class="container-section-cover">
+                        <h1 class="container-title circuit-diagram-title">Circuit Diagram</h1>
+                        <p class="Description-making circuit-diagram-description">Here you can see in figure  is the circuit diagram used for our Home Security project. Here NodeMCU is the common component which connected to the all-other components. The circuit diagram is quite simple. Here we use the 3digital pin D2, D4andD5. D2 digital pin is connected to servo motor to open the door lock. Digital pin D5 is connected to Switch like mechanism attached to the door as shown in the image, to keep track the status of the door. Using this microcontroller knows whether the door is opened or closed. It will Be 1 if the door is closed and it will be 0 If the door is opened. Digital pin D4 is connected to the Vibration sensor Sw-420 as shown in the image. From which the vibration occurred at the door will be detected. 5v and ground from the Nodemcu are connected to the vibration sensor and servomotor as shown in the figure. 5v is connected to the switch as shown in the figure</p>
+                        <img src="img/making/circuit-diagram.png" class="circuit-diagram-image image">
+                    </div>
+                </section>
+                <section class="mit-app-inventer-section container-section">
+                    <div class="container-section-cover">
+                        <h1 class="mit-app-inventer-title container-title">App developmet in MIT app inventor</h1>
+                        <ul class="app-instruction-list Description-making">
+                            <li>I recommend you to learn mit app inventor by doing simple projects <a href="https://appinventor.mit.edu/explore/ai2/tutorials" target="_blank"><b>here</b></a></li>
+                            <li>I give the link to the .aia file which you can import on the mit app inventor and make changes in the app</li>
+                            <li>I also give the link to app to download</li>
+                            <li><b>Note:</b>&nbsp;Here i used the fingre print reader external extension from <a href="https://community.appinventor.mit.edu/t/fingerprintsensor-extension/696" target="_blank"><b>here</b></a></li>
+                        </ul>
+                        <img src="img/making/mit-app-inventor.png" class="mit-app-inventor-image image">
+                        <div class="download-aia-apk">
+                            <a href="Download/HSS_proji.aia" download>Download .aia file</a>
+                            <a href="Download/HSS_proji.apk" download>Download .apk file</a>
+                        </div>
+                    </div>
+                </section>
+                <section class="setting-up-tingspeak-section container-section">
+                    <div class="container-section-cover">
+                        <h1 class="thingspeak-title container-title">Setting up Thingspeak.com</h1>
+                        <ul class="thingspeak-list Description-making">
+                            <li>Before dive into the thingspeak, visit <a href="https://www.instructables.com/ThingSpeak-Using-ESP8266/" target="_blank"><b> this blog</b></a> and try to do this simple project in this article to get familiare with the thingspeak.</li>
+                            <li>First Register and Login to the Thingspeak.com</li>
+                            <li>Then create the <b>new channels</b> with 3 field as shown in the image</li>
+                        </ul>
+                        <img src="img/making/thingspeak-1.png" class="thingspeak-image-1 image">
+                        <ul class="thingspeak-list Description-making">
+                            <li>Then in the arduino program change the <b>channel number, write api key, read api key</b> to the thigspeak generated values</li>
+                            <li>Also Change the <b>SSID, Password</b> to your respective local wifi SSID and Password</li>
+                        </ul>
+                        <div class="thingspeak-image-flex">
+                            <img class="thinspeak-image-f" src="img/making/thingspeak-2.png">
+                            <img class="thinspeak-image-f" src="img/making/thingspeak-3.png">
+                        </div>
+                        <ul class="thingspeak-list Description-making">
+                            <li>You can see the values updated by the nodemcu in the private/public view.
+                            </li>
+                        </ul>
+                        <img class="thinspeak-image-4 image" src="img/making/thingspeak-4.png">
+                    </div>
+                </section>
+                <section class="download-report-ppt-section container-section">
+                    <div class="container-section-cover">
+                        <h1 class="downloadpr-title container-title">Download PPT and Report</h1>
+                        <div class="download-report-ppt">
+                            <div class="iframe-ppt-cover frame-cover">
+                                <iframe src="Download/HSS_ppt.pdf" title="ppt" class="iframe-ppt frame"></iframe>
+                                <a href="Download/HSS_ppt.pdf" download class="pr-download">Download PPT</a>
+                            </div>
+                            <div class="iframe-report-cover frame-cover">
+                                <iframe src="Download/HSS_report.pdf" title="report" class="iframe-report frame"></iframe>
+                                <a href="Download/HSS_report.pdf" download class="pr-download">Download Report</a>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </article>
