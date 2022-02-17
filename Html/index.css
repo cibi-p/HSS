@@ -176,8 +176,6 @@ div .hero-group-2{
 .about-video{
     width:938px;
     height:553px;
-    min-width:400px;
-    min-height:225px;
 }
 
 .description{
@@ -540,7 +538,7 @@ div .hero-group-2{
 
 @media (max-width:600px){
     .about-video{
-        width:80%;
-        height:206px;
+        width:100%;
+        height:auto;
     }
 }
